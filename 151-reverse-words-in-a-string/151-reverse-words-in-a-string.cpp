@@ -8,7 +8,8 @@ public:
         for(int i=0;i<n;i++){
             string word;
             
-            if(s[i]==' ') continue;
+            if(s[i]==' ') continue;        //for handling multiple spaces b/w 2 words,
+                                           //leading and training spaces also
             
             while(i<n and s[i]!=' '){
                 word+=s[i++];
