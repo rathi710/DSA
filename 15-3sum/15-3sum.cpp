@@ -25,9 +25,6 @@ public:
                     while (l < r && A[l] == A[l + 1])
                         l++;
 
-                    // Skipping duplicates
-                    while (r > l && A[r] == A[r - 1])
-                        r--;
                     
                     l++; r--;
                 }
