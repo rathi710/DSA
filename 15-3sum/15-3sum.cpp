@@ -22,9 +22,7 @@ public:
                     ans.push_back( {A[i],A[l],A[r]} );
                     
                     // Skipping duplicates
-                    while (l < r && A[l] == A[l + 1])
-                        l++;
-
+                    while (l < r && A[l] == A[l + 1])  l++;
                     
                     l++; r--;
                 }
