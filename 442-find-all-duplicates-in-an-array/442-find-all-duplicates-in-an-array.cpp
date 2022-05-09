@@ -2,18 +2,20 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) 
     {
-       unordered_map <int,int> ump;
+        vector<int> ans;
+        int n=nums.size();
         
-        vector <int> ans;
-        for(int i=0;i<nums.size();i++){
-            ump[nums[i]]++;
+        for(auto x:nums)
+        {
+            x= abs(x);
+            if(nums[x-1]>0) nums[x-1] *= -1;
+            else ans.push_back(x);
         }
         
-        for(auto i : ump){
-            if(i.second == 2)
-                ans.push_back(i.first);
-            
-        }
         return ans;
     }
 };
+
+//interesting concept
+//most efficient o(n) solution with no extra space.
+//https://leetcode.com/problems/find-all-duplicates-in-an-array/discuss/1682530/C%2B%2B-Multiple-approaches-explained-with-full-explanation!
