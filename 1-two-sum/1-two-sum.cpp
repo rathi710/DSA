@@ -13,8 +13,9 @@ public:
             {
                 return {i, m[curr]};
             }
-            
+            else {
              m[nums[i]] = i;   //keep inserting what we have seen
+            }
         }
         
         return {};  //pair not found
@@ -25,3 +26,4 @@ public:
 //using hashmap
 //tc->o(n)
 //sc->o(n)
+//see with two-pointer also, its as good
