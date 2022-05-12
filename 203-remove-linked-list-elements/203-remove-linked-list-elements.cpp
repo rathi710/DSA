@@ -28,7 +28,7 @@ public:
         // we surely know that cur is not to be deleted because we came to it
         // from the previous loop
         
-        while(tmp and tmp->next){
+        while(tmp->next){
             if(tmp->next->val==val){
                 tmp->next = tmp->next->next;
             }
