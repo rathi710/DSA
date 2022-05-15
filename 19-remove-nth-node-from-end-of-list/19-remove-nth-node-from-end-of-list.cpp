@@ -11,10 +11,12 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) 
-    {
-        if(!head) return 0;
-        
-        int res=1;
+    {   
+       //BruteForce Method
+      //Time Complexity :- O(n) + O(n) = O(2*n) [Two Pass]
+      //Space Complexity:- O(1)
+       
+      //Counting the number of nodes in the linked list.
         ListNode*tmp=head;
         int c=0;
         while(tmp){
@@ -22,11 +24,25 @@ public:
             c++;
         }
         
-        if(n==c){                   //edge case
-            return head->next;
+         //Checking the edge case when the 'n' i.e. node to be deleted
+        //from end of the list is equal to the number of nodes in the 
+        //linked list.
+        /*For Example :- 
+                       Input : [7,4] , n=2
+                       Output: [4]
+      */
+        
+        if(n==c){                   
+          ListNode *node=head;  
+          head=head->next;        //or simply: return head->next
+          delete node;
+          return head;
         }
         
+         //If the node to be deleted is not the head of the list then we have 
+        //to reach one node before it.
         tmp=head;
+        int res=1;
         while(tmp->next)
         {
             if(res==c-n){
@@ -41,3 +57,4 @@ public:
         return head;
     }
 };
+
