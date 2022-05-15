@@ -11,9 +11,7 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) 
-    {
-         if(!head) return 0;
-        
+    {   
         //to not reverse the last group which is less than k
          ListNode* temp=head;
          for(int i=0;i<k;i++)
