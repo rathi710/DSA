@@ -25,7 +25,7 @@ public:
                while(head->next && head->val==head->next->val){
                    head=head->next;
                }
-               prev->next=head->next;         //connecting prev & head
+               prev->next=head->next;         
            }
            else{
                 prev=head;
