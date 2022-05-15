@@ -11,41 +11,6 @@
 class Solution {
 public:
     
-     //MergeSort Function O(n*logn)
-    ListNode* mergelist(ListNode *l1, ListNode *l2)
-    {
-        ListNode *ptr = new ListNode(0);
-        ListNode *curr = ptr;
-        
-        while(l1 != NULL && l2 != NULL)
-        {
-            if(l1->val <= l2->val){
-                curr -> next = l1;
-                l1 = l1 -> next;
-            }
-            else{
-                curr -> next = l2;
-                l2 = l2 -> next;
-            }
-        
-        curr = curr ->next;
-        
-        }
-        
-        //for unqual length linked list
-        if(l1 != NULL){
-            curr -> next = l1;
-            l1 = l1->next;
-        }
-        
-        if(l2 != NULL){
-            curr -> next = l2;
-            l2 = l2 ->next;
-        }
-        
-        return ptr->next;
-    }
-    
     ListNode* sortList(ListNode* head) {
         //If List Contain a Single or 0 Node
         if(head == NULL || head ->next == NULL)
@@ -71,5 +36,41 @@ public:
         
         return mergelist(l1, l2);         //mergelist Function call
             
+    }
+    
+    //MergeSort Function O(n*logn)
+    ListNode* mergelist(ListNode *l1, ListNode *l2)
+    {
+        ListNode *ptr = new ListNode(0);
+        ListNode *curr = ptr;
+        
+        while(l1 != NULL && l2 != NULL)
+        {
+            if(l1->val <= l2->val){
+                curr -> next = l1;
+                l1 = l1 -> next;
+            }
+            else {
+                curr -> next = l2;
+                l2 = l2 -> next;
+            }
+        
+        curr = curr ->next;
+        
+        }
+        
+        //for unqual length linked list
+        
+        if(l1 != NULL) {
+            curr -> next = l1;
+            l1 = l1->next;
+        }
+        
+        if(l2 != NULL) {
+            curr -> next = l2;
+            l2 = l2 ->next;
+        }
+        
+        return ptr->next;
     }
 };
