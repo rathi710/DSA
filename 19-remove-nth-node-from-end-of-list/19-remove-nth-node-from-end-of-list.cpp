@@ -12,6 +12,8 @@ class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) 
     {
+        if(!head) return 0;
+        
         int res=1;
         ListNode*tmp=head;
         int c=0;
@@ -19,11 +21,11 @@ public:
             tmp=tmp->next;
             c++;
         }
-        if(n==c){
+        
+        if(n==c){                   //edge case
             return head->next;
         }
         
-        if(c==0 || c ==1 ) return NULL;
         tmp=head;
         while(tmp->next)
         {
