@@ -30,7 +30,7 @@ public:
 
 //Explanation:- 
 
-//For a temperature at index i, we need to find the slightly warmer temperature(at position j) than the current temperature for 0 <= i < j < n. Which means we need to find the next greater element for the current element at index i and if not found then we place 0 in that place.
+//For a temperature at index i, we need to find the slightly warmer temperature(at position j) //than the current temperature for 0 <= i < j < n. Which means we need to find the next greater //element for the current element at index i and if not found then we place 0 in that place.
 
-//Next Greater Element is a standard problem that is done by using stack and here we just have a slight variation in it. Instead of finding the next greater element, we need to find the distance between current element (temperature) and the next greater element which can be esily done.
+//Next Greater Element is a standard problem that is done by using stack and here we just have //a slight variation in it. Instead of finding the next greater element, we need to find the //distance between current element (temperature) and the next greater element which can be //easily done.
 
