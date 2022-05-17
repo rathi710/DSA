@@ -1,7 +1,6 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-          //if size of nums is zero then return 0;
         
         if(nums.size()==0) return 0;
         
