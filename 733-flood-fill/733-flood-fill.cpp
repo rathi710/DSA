@@ -1,42 +1,39 @@
 class Solution {
 public:
-    
-    bool isValid(int sr,int sc,int r,int c,int color,vector<vector<int>> &image)
+    void fill(vector<vector<int>>& image, int x, int y, int r, int c, int nc, int color)
     {
-        if(sr>=0 && sr<r && sc>=0 && sc<c && image[sr][sc]==color){
-            return true;
-        }
-        return false;
-    }
-    
-    void solve(int sr,int sc,int r,int c,int color,int newcolor,vector<vector<int>>& image)
-    {
-        image[sr][sc] = newcolor;
+		// Check boundary conditions
+        if(x < 0 || y < 0 || x >= r || y >= c || image[x][y] != color)
+            return;
         
-        if(isValid(sr+1,sc,r,c,color,image))
-            solve(sr+1,sc,r,c,color,newcolor,image);
+		// Change the color
+        image[x][y] = nc;
         
-         if(isValid(sr-1,sc,r,c,color,image))
-            solve(sr-1,sc,r,c,color,newcolor,image);
-        
-         if(isValid(sr,sc+1,r,c,color,image))
-            solve(sr,sc+1,r,c,color,newcolor,image);
-        
-         if(isValid(sr,sc-1,r,c,color,image))
-            solve(sr,sc-1,r,c,color,newcolor,image);
+		// Recursive calls for all the 4 directions-dfs
+        fill(image,x-1,y,r,c,nc,color);    // Top
+        fill(image,x+1,y,r,c,nc,color);    // Bottom
+        fill(image,x,y-1,r,c,nc,color);    // Left
+        fill(image,x,y+1,r,c,nc,color);    // Right
     }
     
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) 
     {
+		// Total rows and columns
         int r = image.size();
         int c = image[0].size();
         
+		// Source color
         int color = image[sr][sc];
         
-        if(color == newColor) return image;
+		// Check if source color is equal to new color
+		// If same then return 
+        if(color == newColor)
+            return image;
         
-        solve(sr,sc,r,c,color,newColor,image);
+		// Call for dfs
+        fill(image,sr,sc,r,c,newColor,color);
         
+		// Return the answer
         return image;
     }
 };
