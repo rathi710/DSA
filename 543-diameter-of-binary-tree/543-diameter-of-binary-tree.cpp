@@ -17,7 +17,7 @@ public:
         int l = solve(root->left,ans);
         int r = solve(root->right,ans);
 
-        ans = max(ans,l+r);
+        ans = max(ans,l+r+1);
         return 1 + max(l,r);
     }
     
@@ -26,6 +26,6 @@ public:
         if(!root) return 0;
         int ans=-1;
         int x = solve(root,ans);
-        return ans;
+        return ans-1;            //here they have asked for edges
     }
 };
