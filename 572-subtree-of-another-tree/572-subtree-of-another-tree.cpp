@@ -32,7 +32,7 @@ public:
         //check if s and t are same, if yes return true
         if(isSame(root,subRoot)) return true;
         
-        //if s and t are not same then pass left and right nodes, and check same for that nodes as well as its           //child nodes.
+        //if s and t are not same then pass left and right nodes, and check same for that nodes as well as its child nodes.
         return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
     }
 };
