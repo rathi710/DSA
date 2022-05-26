@@ -19,12 +19,15 @@ public:
         if(root == p or root == q) return root;         
         
         
-        //if above is not true, search the left & right subtree of that root
+       // we'll call both side of the current node and if both value comes as not null value that        //means below the current node both the nodes (p,q) exists
         TreeNode* l = lowestCommonAncestor(root->left,p,q);
         TreeNode* r = lowestCommonAncestor(root->right,p,q);
-        
         if(l && r) return root;
+        
+        //if above condition is not satisfy then we'll check which node returned as not null we'll         //just return that
         if(l) return l;
         return r;
     }
 };
+
+
