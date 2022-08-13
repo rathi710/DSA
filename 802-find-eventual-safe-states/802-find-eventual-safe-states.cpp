@@ -15,7 +15,7 @@ public:
                 return check_cycle[s] = true;
             }
         }
-        
+        // As adj vertices of source are explored, make currVisited as false because we are coming out of its DFS call
         dfsVisited[s] = false;
         return false;
     }
@@ -40,3 +40,9 @@ public:
         return ans;
     }
 };
+
+//algo: DFS
+// This problem's description is really bad!!!
+// What they are asking is just to return all nodes which are not part of any cycle!!!
+
+//can also be done using topo sort
