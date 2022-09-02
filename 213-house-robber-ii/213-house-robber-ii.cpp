@@ -2,10 +2,7 @@ class Solution {
 public:
     int solve(vector<int>& nums) {
         int n=nums.size();
-        if(n==0) return 0;
         vector<int> dp(n,-1);
-        if(n==0) return 0;
-        if(n==1) return nums[0];
         
         dp[0]=nums[0];
         dp[1]=max(nums[0],nums[1]);  
@@ -20,16 +17,13 @@ public:
 
 	int rob(vector<int>& nums) {
         int n = nums.size();
-        
+        if(n==0) return 0;
         if(n==1) return nums[0];
-		
-        vector<int> tmp1, tmp2;
-        for(int i=0;i<n;i++)
-        {
-            if(i != 0) tmp1.push_back(nums[i]);
-            if(i != n-1) tmp2.push_back(nums[i]);
-            
-        }        
+		if (n == 2) return max(nums[0], nums[1]);
+        
+        vector<int> tmp1(nums.begin(), nums.end()-1);
+        vector<int> tmp2(nums.begin()+1, nums.end());      
+        
 		return max(solve(tmp1), solve(tmp2)); 
 	}
 };
