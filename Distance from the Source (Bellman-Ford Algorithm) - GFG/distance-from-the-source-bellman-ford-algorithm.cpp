@@ -13,7 +13,10 @@ class Solution {
     *   V: number of vertices
     */
     
-    // relax all the edges n-1 times,order of edges doesnt matter
+    // relax all the edges n-1 times,order of edges doesnt 
+    // works on directed graph
+    // helps in detecting negative cycle
+    // can handle negative edges
     vector<int> bellman_ford(int V, vector<vector<int>>& edges, int S) 
     {
         vector<int> dist(V,1e8);
